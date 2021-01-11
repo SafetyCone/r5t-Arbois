@@ -1,0 +1,20 @@
+{
+  "name": "r5t-arbois",
+  "version": "0.0.1",
+  "description": "An evented HTML element wrapper TypeScript library.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "events",
+    "HTML",
+    "element",
+    "wrappers"
+  ],
+  "author": "David Coats",
+  "license": "MIT",
+  "dependencies": {
+    "strongly-typed-events": "^1.6.4"
+  }
+}
