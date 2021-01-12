@@ -15,6 +15,6 @@
   "author": "David Coats",
   "license": "MIT",
   "dependencies": {
-    "strongly-typed-events": "^1.6.4"
+    "strongly-typed-events": "1.6.4"
   }
 }
