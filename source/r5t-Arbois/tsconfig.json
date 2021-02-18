@@ -1,13 +1,13 @@
 {
     // This is a library.
-    "extends": "../../r5t-Paris/source/tsconfig-base.json",
+    "extends": "../../../r5t-Paris/source/r5t-Paris/tsconfig-base.json",
     "references": [
-        {"path": "../../r5t-Avignon/source"}
+        {"path": "../../../r5t-Avignon/source/r5t-Avignon"}
     ],
     "compilerOptions": {
         "outDir": "output",
         "paths": {
-            "r5t-Avignon/*":["../../r5t-Avignon/source/output/ts/*"]
+            "r5t-Avignon/*":["../../../r5t-Avignon/source/r5t-Avignon/output/ts/*"]
         }
     },
     "include": [
