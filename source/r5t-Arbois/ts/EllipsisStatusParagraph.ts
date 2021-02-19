@@ -8,7 +8,9 @@ export class EllipsisStatusParagraph
     private zInterval: number;
 
 
-    constructor(public ParagraphElement: HTMLParagraphElement, public IntervalMilliseconds: number = EllipsisStatusParagraph.DefaultIntervalMilliseconds)
+    constructor(
+        public element: HTMLParagraphElement | HTMLSpanElement,
+        public IntervalMilliseconds: number = EllipsisStatusParagraph.DefaultIntervalMilliseconds)
     {
         this.zInterval = IntervalMilliseconds;
     }
@@ -27,7 +29,7 @@ export class EllipsisStatusParagraph
 
     private Increment()
     {
-        let paragraphValue = this.ParagraphElement.innerText;
+        let paragraphValue = this.element.innerText;
 
         this.zIncrement++;
 
@@ -35,11 +37,11 @@ export class EllipsisStatusParagraph
         {
             this.ResetIncrement();
 
-            this.ParagraphElement.innerText = paragraphValue.slice(0, paragraphValue.length - EllipsisStatusParagraph.MaxIncrement);
+            this.element.innerText = paragraphValue.slice(0, paragraphValue.length - EllipsisStatusParagraph.MaxIncrement);
         }
         else
         {
-            this.ParagraphElement.innerText = paragraphValue + ".";
+            this.element.innerText = paragraphValue + ".";
         }
     }
 
@@ -48,7 +50,7 @@ export class EllipsisStatusParagraph
         clearInterval(this.zInterval);
 
         // Reset the text.
-        let paragraphValue = this.ParagraphElement.innerText;
-        this.ParagraphElement.innerText = paragraphValue.slice(0, paragraphValue.length - this.zIncrement);
+        let paragraphValue = this.element.innerText;
+        this.element.innerText = paragraphValue.slice(0, paragraphValue.length - this.zIncrement);
     }
 }

@@ -21,7 +21,7 @@ export class ValidatedTextInput
 
 
     constructor(
-        protected readonly TextInput: HTMLInputElement,
+        public readonly TextInput: HTMLInputElement,
         protected readonly Validator: (value: string) => Promise<ValidationResult>,
         protected readonly Event: keyof HTMLElementEventMap = "change")
     {
