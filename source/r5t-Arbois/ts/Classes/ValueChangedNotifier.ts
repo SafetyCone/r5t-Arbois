@@ -5,7 +5,18 @@ export interface IValueChangedNotifier
     OnValueChangedSignal: ISignal;
 }
 
-export class ValueChangedNotifier<T> implements IValueChangedNotifier
+export abstract class ValueChangedNotifierBase implements IValueChangedNotifier
+{
+    protected zOnValueChangedSignal = new SignalDispatcher();
+    public get OnValueChangedSignal(): ISignal
+    {
+        return this.zOnValueChangedSignal.asEvent();
+    }
+
+    public abstract get HasValue(): boolean;
+}
+
+export class ValueChangedNotifier<T> extends ValueChangedNotifierBase
 {
     private zValue: T;
     public get Value(): T
@@ -17,10 +28,10 @@ export class ValueChangedNotifier<T> implements IValueChangedNotifier
         this.SetValue(value);
     }
 
-    private zOnValueChangedSignal = new SignalDispatcher();
-    public get OnValueChangedSignal(): ISignal
+    public get HasValue(): boolean
     {
-        return this.zOnValueChangedSignal.asEvent();
+        let hasValue = this.zValue !== undefined;
+        return hasValue;
     }
 
     private zOnValueChanged = new SimpleEventDispatcher<T>();
@@ -29,15 +40,11 @@ export class ValueChangedNotifier<T> implements IValueChangedNotifier
         return this.zOnValueChanged.asEvent();
     }
 
-    public get HasValue(): boolean
-    {
-        let hasValue = this.zValue !== undefined;
-        return hasValue;
-    }
-
 
     public constructor(value: T = undefined)
     {
+        super();
+        
         this.zValue = value;
     }
 

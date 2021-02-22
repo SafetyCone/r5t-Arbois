@@ -1,4 +1,5 @@
 export * from "./Bindings/ButtonEnabledBinding";
+export * from "./Bindings/ValueChangedBinding";
 export * from "./Classes/BooleanValueChangedNotifierGroupAnd";
 export * from "./Classes/ValueAwaiter";
 export * from "./Classes/ValueChangedNotifier";

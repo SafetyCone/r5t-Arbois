@@ -6,7 +6,8 @@ export class BooleanValueChangedNotifierGroupAnd extends ValueChangedNotifier<bo
     {
         super(initialValue);
 
-        for (const value of this.Values) {
+        for (const value of this.Values)
+        {
             value.OnValueChanged.subscribe(() => this.OnGroupElementChanged());
         }
     }
@@ -18,7 +19,8 @@ export class BooleanValueChangedNotifierGroupAnd extends ValueChangedNotifier<bo
 
     private ComputeValue()
     {
-        for (const value of this.Values) {
+        for (const value of this.Values)
+        {
             if(!value.Value)
             {
                 this.Value = false;
