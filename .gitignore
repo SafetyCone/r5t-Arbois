@@ -1,7 +1,7 @@
 # Custom for us
 **/ts/**/*.js
 **/ts/**/*.js.map
-**/wwwroot/ts-out/
+**/output/
 
 *.tsbuildinfo
 *.d.ts
