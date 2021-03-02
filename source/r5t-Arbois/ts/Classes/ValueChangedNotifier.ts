@@ -16,7 +16,12 @@ export abstract class ValueChangedNotifierBase implements IValueChangedNotifier
     public abstract get HasValue(): boolean;
 }
 
-export class ValueChangedNotifier<T> extends ValueChangedNotifierBase
+export interface ITypedValueChangedNotifier<T> extends IValueChangedNotifier
+{
+    Value: T;
+}
+
+export class ValueChangedNotifier<T> extends ValueChangedNotifierBase implements ITypedValueChangedNotifier<T>
 {
     private zValue: T;
     public get Value(): T

@@ -1,10 +1,15 @@
-import { SimpleEventDispatcher, ISimpleEvent } from "strongly-typed-events";
+import { SimpleEventDispatcher, ISimpleEvent, SignalDispatcher, ISignal } from "strongly-typed-events";
 
-import { ValidationResult } from "r5t-Avignon/Index";
+import { HtmlElementEvent, StringValidator, ValidationResult } from "r5t-Avignon/Index";
 
 import { HtmlInputableElement } from "../Types/HtmlInputableElement";
 
-export class ValidatedInput<T extends HtmlInputableElement>
+export class ValidatedInputBase
+{
+    public ValidationDisabled: boolean = false;
+}
+
+export class ValidatedInput<TElement extends HtmlInputableElement> extends ValidatedInputBase
 {
     private zOnValidationFinished = new SimpleEventDispatcher<ValidationResult>();
     public get OnValidationFinished(): ISimpleEvent<ValidationResult>
@@ -17,8 +22,8 @@ export class ValidatedInput<T extends HtmlInputableElement>
         this.zOnValidationFinished.dispatchAsync(validationResult);
     }
 
-    private zOnValidationSuccess = new SimpleEventDispatcher<T>();
-    public get OnValidationSuccess(): ISimpleEvent<T>
+    private zOnValidationSuccess = new SimpleEventDispatcher<TElement>();
+    public get OnValidationSuccess(): ISimpleEvent<TElement>
     {
         return this.zOnValidationSuccess.asEvent();
     }
@@ -39,20 +44,53 @@ export class ValidatedInput<T extends HtmlInputableElement>
         this.zOnValidationFailure.dispatchAsync(validationResult);
     }
 
+    private zOnValidationSkipped = new SignalDispatcher();
+    public get OnValiationSkipped(): ISignal
+    {
+        return this.zOnValidationSkipped.asEvent();
+    }
+    private FireOnValidationSkipped()
+    {
+        // Choose async events.
+        this.zOnValidationSkipped.dispatchAsync();
+    }
+
+    public get Value()
+    {
+        let value = this.HtmlElement.value;
+        return value;
+    }
+
 
     constructor(
-        public readonly HtmlElement: T,
-        protected readonly Validator: (value: string) => Promise<ValidationResult>,
-        protected readonly Event: keyof HTMLElementEventMap = "change")
+        public readonly HtmlElement: TElement,
+        protected readonly Validator: StringValidator,
+        public readonly Event: HtmlElementEvent = "change")
     {
+        super();
+        
         this.HtmlElement.addEventListener(this.Event, () => this.OnEvent());
+    }
+
+    public IsValid() : Promise<ValidationResult>
+    {
+        let value = this.Value;
+
+        let gettingIsValid = this.Validator(value);
+        return gettingIsValid;
     }
 
     private async OnEvent()
     {
-        let valueString = this.HtmlElement.value;
+        if(this.ValidationDisabled)
+        {
+            // Skip validation. Inform that validation was skipped, then return.
+            this.FireOnValidationSkipped();
 
-        let validationResult = await this.Validator(valueString);
+            return;
+        }
+
+        let validationResult = await this.IsValid();
 
         this.HandleValidationResult(validationResult);
     }

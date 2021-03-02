@@ -1,0 +1,1 @@
+export type ElementAndModelAction<TElement extends HTMLElement, TModel> = (element: TElement, model: TModel) => void;
