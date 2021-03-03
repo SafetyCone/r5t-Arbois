@@ -2,9 +2,11 @@ import { ValueChangedNotifier } from "../Classes/ValueChangedNotifier";
 
 export class ButtonEnabledBinding
 {
-    constructor(private Button: HTMLButtonElement, private BooleanValueChangedNotifier: ValueChangedNotifier<boolean>)
+    constructor(
+        private readonly Button: HTMLButtonElement,
+        private ButtonEnabled: ValueChangedNotifier<boolean>)
     {
-        this.BooleanValueChangedNotifier.OnValueChanged.subscribe((value) => this.OnValueChanged(value));
+        this.ButtonEnabled.OnValueChanged.subscribe((value) => this.OnValueChanged(value));
     }
 
     private OnValueChanged(value: boolean)
