@@ -1,4 +1,4 @@
-import { HtmlElementEvent, Parsifier, Stringifier, StringValidator, ValidationResult } from "r5t-Avignon/Index";
+import { HtmlElementEvent, Parsifier, Stringifier, StringValidator, ValidationResult } from "r5t-Avignon";
 
 import { IsChangingContext } from "../Classes/IsChangingContext";
 import { ValueChangedNotifier } from "../Classes/ValueChangedNotifier";

@@ -1,4 +1,4 @@
-import { Action } from "r5t-Avignon/Index";
+import { Action } from "r5t-Avignon";
 
 import { IValidatedValuePropagator } from "../Bindings/Interfaces/IValidatedValuePropagator";
 

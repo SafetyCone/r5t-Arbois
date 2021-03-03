@@ -1,4 +1,4 @@
-import { HtmlElementEvent, Parsifier, StringValidator, ValidationResult } from "r5t-Avignon/Index";
+import { HtmlElementEvent, Parsifier, StringValidator, ValidationResult } from "r5t-Avignon";
 
 import { ValueChangedNotifier } from "../Classes/ValueChangedNotifier";
 import { ValidatedInput } from "../Components/ValidatedInput";

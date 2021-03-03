@@ -1,4 +1,4 @@
-import { Parsifier, Stringifier } from "r5t-Avignon/Index";
+import { Parsifier, Stringifier } from "r5t-Avignon";
 
 import { ValueChangedNotifier } from "../Classes/ValueChangedNotifier";
 import { ElementAndValueAction } from "../Types/ElementAndValueAction";

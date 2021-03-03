@@ -1,4 +1,4 @@
-import { Action } from "r5t-Avignon/Index";
+import { Action } from "r5t-Avignon";
 
 /**
  * Useful in two-way bindings to prevent element => value => element => value ... change propagation loops.

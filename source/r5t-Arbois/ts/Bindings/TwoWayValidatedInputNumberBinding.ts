@@ -1,4 +1,4 @@
-import { HtmlElementEvent, Parsification, Stringification, Validation } from "r5t-Avignon/Index";
+import { HtmlElementEvent, Parsification, Stringification, Validation } from "r5t-Avignon";
 import { ValueChangedNotifier } from "../Classes/ValueChangedNotifier";
 
 import { TwoWayValidatedInputValueBinding } from "./TwoWayValidatedInputValueBinding";

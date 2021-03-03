@@ -7,7 +7,7 @@
     "compilerOptions": {
         "outDir": "output",
         "paths": {
-            "r5t-Avignon/*":["../../../r5t-Avignon/source/r5t-Avignon/output/ts/*"]
+            "r5t-Avignon":["../../../r5t-Avignon/source/r5t-Avignon/output/ts/Index"]
         }
     },
     "include": [

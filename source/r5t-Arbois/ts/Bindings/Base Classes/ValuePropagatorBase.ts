@@ -1,6 +1,6 @@
 import { SignalDispatcher, ISignal } from "strongly-typed-events";
-import { ValuePropagation } from "../../Classes/ValuePropagation";
 
+import { ValuePropagation } from "../../Classes/ValuePropagation";
 import { IValuePropagator } from "../Interfaces/IValuePropagator";
 
 export abstract class ValuePropagatorBase implements IValuePropagator

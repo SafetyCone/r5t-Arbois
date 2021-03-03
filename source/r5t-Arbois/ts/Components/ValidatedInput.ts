@@ -1,6 +1,6 @@
 import { SimpleEventDispatcher, ISimpleEvent, SignalDispatcher, ISignal } from "strongly-typed-events";
 
-import { HtmlElementEvent, StringValidator, ValidationResult } from "r5t-Avignon/Index";
+import { HtmlElementEvent, StringValidator, ValidationResult } from "r5t-Avignon";
 
 import { HtmlInputableElement } from "../Types/HtmlInputableElement";
 

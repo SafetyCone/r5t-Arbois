@@ -1,5 +1,4 @@
-import { ActionOn, EventHelper, HtmlElementEvent } from "r5t-Avignon/Index";
-import { ValuePropagatorBase } from "../Bindings/Base Classes/ValuePropagatorBase";
+import { ActionOn, EventHelper, HtmlElementEvent } from "r5t-Avignon";
 
 import { IHasElementValuePropagator } from "../Bindings/Interfaces/IHasElementValuePropagator";
 import { IValuePropagatorExtensions } from "./IValuePropagatorExtensions";

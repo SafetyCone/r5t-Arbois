@@ -1,4 +1,4 @@
-import { HtmlElementEvent } from "r5t-Avignon/Index";
+import { HtmlElementEvent } from "r5t-Avignon";
 
 import { ElementAndModelAction } from "../Types/ElementAndModelAction";
 import { IHasElementValuePropagator } from "./Interfaces/IHasElementValuePropagator";

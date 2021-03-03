@@ -1,4 +1,4 @@
-import { Action, HtmlElementEvent } from "r5t-Avignon/Index";
+import { Action, HtmlElementEvent } from "r5t-Avignon";
 
 import { ValueChangedNotifier } from "../Classes/ValueChangedNotifier";
 import { ElementAndValueAction } from "../Types/ElementAndValueAction";

@@ -1,4 +1,4 @@
-import { StringHelper } from "r5t-Avignon/Helpers/StringHelper";
+import { StringHelper } from "r5t-Avignon";
 
 
 export class TextAreaWrapper

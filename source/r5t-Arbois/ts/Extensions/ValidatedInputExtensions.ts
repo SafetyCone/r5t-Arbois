@@ -1,4 +1,5 @@
-import { ActionOn, EventHelper, HtmlElementEvent } from "r5t-Avignon/Index";
+import { ActionOn, EventHelper, HtmlElementEvent } from "r5t-Avignon";
+
 import { ValidatedInput } from "../Components/ValidatedInput";
 import { HtmlInputableElement } from "../Types/HtmlInputableElement";
 

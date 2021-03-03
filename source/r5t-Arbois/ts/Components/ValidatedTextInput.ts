@@ -1,6 +1,6 @@
 import { SimpleEventDispatcher, ISimpleEvent } from "strongly-typed-events";
 
-import { ValidationResult } from "r5t-Avignon/Index";
+import { ValidationResult } from "r5t-Avignon";
 
 import { ValidatedInput } from "./ValidatedInput";
 

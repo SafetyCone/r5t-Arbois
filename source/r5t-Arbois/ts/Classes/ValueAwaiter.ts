@@ -1,4 +1,4 @@
-import { Task, TaskHelper } from "r5t-Avignon/Index";
+import { Task, TaskHelper } from "r5t-Avignon";
 
 import { ValueChangedNotifier } from "./ValueChangedNotifier";
 
