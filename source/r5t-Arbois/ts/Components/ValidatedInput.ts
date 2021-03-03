@@ -9,6 +9,10 @@ export class ValidatedInputBase
     public ValidationDisabled: boolean = false;
 }
 
+/**
+ * Validation finished fires after validation success or failure.
+ * Either validation skipped or validation finished fires. These are separate.
+ */
 export class ValidatedInput<TElement extends HtmlInputableElement> extends ValidatedInputBase
 {
     private zOnValidationFinished = new SimpleEventDispatcher<ValidationResult>();
@@ -97,8 +101,6 @@ export class ValidatedInput<TElement extends HtmlInputableElement> extends Valid
 
     protected HandleValidationResult(validationResult: ValidationResult)
     {
-        this.FireOnValidationFinished(validationResult);
-
         if(validationResult.IsValid)
         {
             this.FireOnValidationSuccess();
@@ -107,5 +109,7 @@ export class ValidatedInput<TElement extends HtmlInputableElement> extends Valid
         {
             this.FireOnValidationFailure(validationResult);
         }
+
+        this.FireOnValidationFinished(validationResult);
     }
 }
